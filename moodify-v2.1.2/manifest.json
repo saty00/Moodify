@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Moodify, AI Music Discovery",
+  "version": "2.1.1",
+  "description": "Tell Moodify how you feel. Get real songs. Play on Spotify, Apple Music, YouTube Music, Tidal, Amazon, or Deezer.",
+  "permissions": ["storage", "tabs", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://api.anthropic.com/*",
+    "https://api.openai.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://itunes.apple.com/*",
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"],
+    "run_at": "document_idle"
+  }],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [{
+    "resources": ["icons/*", "assets/*"],
+    "matches": ["<all_urls>"]
+  }]
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Moodify</title>
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg-soft: #161614;
+  --border: #262622;
+  --text: #f0ede2;
+  --sub: #8a877c;
+  --cream: #dedfcf;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 320px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-size: 13px;
+  padding: 22px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.brand img { width: 28px; height: 28px; object-fit: contain; }
+.tagline {
+  color: var(--sub);
+  font-size: 12px;
+  line-height: 1.55;
+}
+.btn {
+  padding: 11px 16px;
+  border: 1px solid var(--cream);
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: background .15s, color .15s;
+}
+.btn-primary {
+  background: var(--cream);
+  color: var(--bg);
+}
+.btn-primary:hover { opacity: 0.9; }
+.platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 2px;
+}
+.plat-pill {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  color: var(--sub);
+}
+.status {
+  font-size: 11px;
+  color: var(--sub);
+  text-align: center;
+  margin-top: -2px;
+}
+</style>
+</head>
+<body>
+<div class="brand">
+  <img src="assets/logo-small.png" alt=""/>
+  <span>Moodify</span>
+</div>
+
+<p class="tagline">Tell Moodify how you feel. Get real songs. Play them anywhere.</p>
+
+<div class="platforms">
+  <span class="plat-pill">Spotify</span>
+  <span class="plat-pill">Apple Music</span>
+  <span class="plat-pill">YouTube Music</span>
+  <span class="plat-pill">Tidal</span>
+  <span class="plat-pill">Amazon</span>
+  <span class="plat-pill">Deezer</span>
+</div>
+
+<button class="btn btn-primary" id="open-btn">Open Moodify</button>
+<div class="status" id="status">Click on any web page to launch Moodify.</div>
+
+<script src="popup-launcher.js"></script>
+</body>
+</html>
