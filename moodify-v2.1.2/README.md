@@ -8,15 +8,13 @@ It runs as a floating panel on any web page. There is no separate site, no login
 
 ---
 
-## Why this exists (the honest version)
+## Why this exists
 
 Moodify started life as a Spotify-API project — describe a mood, the model maps it onto Spotify's `energy` / `valence` / `danceability` / `tempo` features, the `/recommendations` endpoint hands back tracks, you save the playlist directly to your account.
 
-Two things broke that plan, both outside my control:
-
-1. **November 27, 2024.** Spotify deprecated `/v1/recommendations`, `/v1/audio-features`, `/v1/audio-analysis`, related-artists, and featured-playlists for all newly-created applications. The endpoints my whole pitch depended on returned 404 for any app created after that date. ([Spotify announcement](https://developer.spotify.com/blog/2024-11-27-changes-to-the-web-api))
-
-2. **February 11, 2026.** Spotify cut Development Mode from 25 users to 5 users per app and made Extended Quota Mode organizations-only with a 250,000 MAU minimum. Solo developers and student projects can no longer scale beyond 5 beta testers, period. ([Spotify announcement](https://developer.spotify.com/blog/2026-02-06-update-on-developer-access-and-platform-security))
+The first version of Moodify was built directly on top of the Spotify Web API... It worked, and around 50 people tried it through the beta.
+ Spotify caps Development Mode apps at 25 simultaneous users via a manual email allowlist. To get 50 people through, I was rotating beta testers in and out of the dashboard every few days, removing the ones who'd given feedback and adding the next batch on the waitlist. Tedious, but it worked.
+**February 11, 2026.** Spotify cut Development Mode from 25 users to 5 users per app... The rotation trick I was using to serve 50 people through a 25-user slot becomes meaningless at 5: there's no realistic way to give a real beta cohort access, even temporarily. Solo developers and student projects are structurally locked out. ([Spotify announcement](https://developer.spotify.com/blog/2026-02-06-update-on-developer-access-and-platform-security))
 
 So Moodify pivoted. The current architecture:
 
